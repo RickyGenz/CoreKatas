@@ -35,5 +35,15 @@ namespace BowlingKataTests
             RollMany(20, 1);
             Assert.AreEqual(20, Game.Score);
         }
+
+        [TestMethod]
+        public void OneSpareGame()
+        {
+            Game.Roll(5);
+            Game.Roll(5);
+            Game.Roll(3);
+            RollMany(17, 0);
+            Assert.AreEqual(16, Game.Score);
+        }
     }
 }
