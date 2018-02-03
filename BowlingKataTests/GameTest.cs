@@ -6,7 +6,15 @@ namespace BowlingKataTests
     [TestClass]
     public class GameTest
     {
-        Game Game;
+        private Game Game;
+
+        private void RollMany(int rolls, int pins)
+        {
+            for (int roll = 0; roll < rolls; roll++)
+            {
+                Game.Roll(pins);
+            }
+        }
 
         [TestInitialize]
         public void InitializeGame()
@@ -17,11 +25,15 @@ namespace BowlingKataTests
         [TestMethod]
         public void GutterGame()
         {
-            for (int i = 0; i < 20; i++)
-            {
-                Game.Roll(0);
-            }
+            RollMany(20, 0);
             Assert.AreEqual(0, Game.Score);
+        }
+
+        [TestMethod]
+        public void AllOnesGame()
+        {
+            RollMany(20, 1);
+            Assert.AreEqual(20, Game.Score);
         }
     }
 }
