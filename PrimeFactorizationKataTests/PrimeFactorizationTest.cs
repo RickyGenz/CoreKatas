@@ -82,5 +82,46 @@ namespace PrimeFactorizationKataTests
             Assert.AreEqual(2, PrimeFactors[1]);
             Assert.AreEqual(2, PrimeFactors[2]);
         }
+
+        [TestMethod]
+        public void PrimeFactorsOfNine()
+        {
+            PrimeFactors = PrimeFactorization.Factor(9);
+            Assert.AreEqual(2, PrimeFactors.Count);
+            Assert.AreEqual(3, PrimeFactors[0]);
+            Assert.AreEqual(3, PrimeFactors[1]);
+        }
+
+        [TestMethod]
+        public void PrimeFactorsOfFourteen()
+        {
+            PrimeFactors = PrimeFactorization.Factor(14);
+            Assert.AreEqual(2, PrimeFactors.Count);
+            Assert.AreEqual(2, PrimeFactors[0]);
+            Assert.AreEqual(7, PrimeFactors[1]);
+        }
+
+        [TestMethod]
+        public void PrimeFactorsOfTwentyFive()
+        {
+            PrimeFactors = PrimeFactorization.Factor(25);
+            Assert.AreEqual(2, PrimeFactors.Count);
+            Assert.AreEqual(5, PrimeFactors[0]);
+            Assert.AreEqual(5, PrimeFactors[1]);
+        }
+
+        [TestMethod]
+        public void PrimeFactorsOfLargeNumber()
+        {
+            PrimeFactors = PrimeFactorization.Factor(2 * 2 * 3 * 3 * 5 * 7 * 13);
+            Assert.AreEqual(7, PrimeFactors.Count);
+            Assert.AreEqual(2, PrimeFactors[0]);
+            Assert.AreEqual(2, PrimeFactors[1]);
+            Assert.AreEqual(3, PrimeFactors[2]);
+            Assert.AreEqual(3, PrimeFactors[3]);
+            Assert.AreEqual(5, PrimeFactors[4]);
+            Assert.AreEqual(7, PrimeFactors[5]);
+            Assert.AreEqual(13, PrimeFactors[6]);
+        }
     }
 }
