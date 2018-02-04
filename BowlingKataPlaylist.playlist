@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="BowlingKataTests.GameTest.GutterGame" /><Add Test="BowlingKataTests.GameTest.RollAllOnes" /><Add Test="BowlingKataTests.GameTest.RollOneSpare" /><Add Test="BowlingKataTests.GameTest.RollOneStrike" /><Add Test="BowlingKataTests.GameTest.PerfectGame" /></Playlist>
