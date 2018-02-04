@@ -22,25 +22,35 @@
 
         private void ScoreFrames()
         {
-            int currentRoll = 0;
+            int roll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (Rolls[currentRoll] == 10)
+                if (IsStrike(roll))
                 {
-                    Points += 10 + Rolls[currentRoll + 1] + Rolls[currentRoll + 2];
-                    currentRoll += 1;
+                    Points += 10 + StrikeBonus(roll);
+                    roll += 1;
                 }
-                else if (Rolls[currentRoll] + Rolls[currentRoll + 1] == 10)
+                else if (Rolls[roll] + Rolls[roll + 1] == 10)
                 {
-                    Points += 10 + Rolls[currentRoll + 2];
-                    currentRoll += 2;
+                    Points += 10 + Rolls[roll + 2];
+                    roll += 2;
                 }
                 else
                 {
-                    Points += Rolls[currentRoll] + Rolls[currentRoll + 1];
-                    currentRoll += 2;
+                    Points += Rolls[roll] + Rolls[roll + 1];
+                    roll += 2;
                 }
             }
+        }
+
+        private bool IsStrike(int roll)
+        {
+            return Rolls[roll] == 10;
+        }
+
+        private int StrikeBonus(int roll)
+        {
+            return Rolls[roll + 1] + Rolls[roll + 2];
         }
     }
 }
