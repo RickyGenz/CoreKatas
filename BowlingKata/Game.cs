@@ -22,17 +22,17 @@
 
         private void ScoreFrames()
         {
-            int roll = 0;
+            int currentRoll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (IsStrike(roll))
+                if (Rolls[currentRoll] == 10)
                 {
-                    Points += 10 + StrikeBonus(roll);
-                    roll += 1;
+                    Points += 10 + Rolls[currentRoll + 1] + Rolls[currentRoll + 2];
+                    currentRoll += 1;
                 }
-                else if (IsSpare(roll))
+                else if (Rolls[roll] + Rolls[roll + 1] == 10)
                 {
-                    Points += 10 + SpareBonus(roll);
+                    Points += 10 + Rolls[roll + 2];
                     roll += 2;
                 }
                 else
@@ -50,17 +50,7 @@
 
         private int StrikeBonus(int roll)
         {
-            return Rolls[roll++] + Rolls[roll + 2];
-        }
-
-        private bool IsSpare(int roll)
-        {
-            return Rolls[roll] + Rolls[roll++] == 10;
-        }
-
-        private int SpareBonus(int roll)
-        {
-            return Rolls[roll + 2];
+            return Rolls[roll + 1] + Rolls[roll + 2];
         }
     }
 }
