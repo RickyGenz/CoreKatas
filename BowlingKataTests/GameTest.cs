@@ -22,6 +22,11 @@ namespace BowlingKataTests
             Game.Roll(5);
         }
 
+        private void RollStrike()
+        {
+            Game.Roll(10);
+        }
+
         [TestInitialize]
         public void InitializeGame()
         {
@@ -54,7 +59,7 @@ namespace BowlingKataTests
         [TestMethod]
         public void RollOneStrike()
         {
-            Game.Roll(10);
+            RollStrike();
             Game.Roll(3);
             Game.Roll(4);
             RollMany(16, 0);
